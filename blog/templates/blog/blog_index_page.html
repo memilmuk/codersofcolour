@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags %}
+
+{% block content %}
+    <h1>{{ page.title }}</h1>
+    <div class="intro">{{ page.intro|richtext }}</div>
+
+        <div class="mw9 center ph3-ns">
+            <div class="cf ph2-ns">
+
+              {% for post in blogpages %}
+              <div class="fl w-100 w-third-ns pa2">
+                <div class="outline bg-light-blue pv4">
+              <h2>
+                  <a href="{% pageurl post %}">
+                      {{ post.title }}
+                  </a>
+              </h2>
+              {{ post.specific.date }}
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+                  
+{% endblock %}
